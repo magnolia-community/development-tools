@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd" >
+<module>
+  <name>development-tools</name>
+  <displayName>${project.name}</displayName>
+  <description>${project.description}</description>
+  <class>info.magnolia.development.DevelopmentToolsModule</class>
+  <version>${project.version}</version>
+
+  <dependencies>
+    <dependency>
+      <name>core</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+    
+    <dependency>
+      <name>rest-integration</name>
+      <version>${restVersion}/*</version>
+    </dependency>
+    
+    <dependency>
+      <name>config</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+    
+    <dependency>
+      <name>templating</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+  </dependencies>
+</module>

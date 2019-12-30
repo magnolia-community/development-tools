@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+      <groupId>info.magnolia.maven.poms-forge</groupId>
+      <artifactId>magnolia-parent-pom-forge</artifactId>
+      <version>37</version>
+  </parent>
+  
+  <groupId>info.magnolia.development</groupId>
+  <artifactId>magnolia-development-tools</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Magnolia Development Tools Module</name>
+  <description>Provides tools for IDEs to interface with the running Magnolia instance.</description>
+  <scm>
+    <connection>scm:git:ssh://git@github.com:magnolia-community/development-tools.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:magnolia-community/development-tools.git</developerConnection>
+    <url>https://github.com/magnolia-community/development-tools.git</url>
+    <tag>HEAD</tag>
+  </scm>
+    
+  <properties>
+    <magnoliaBundleVersion>5.6.5</magnoliaBundleVersion>
+    <magnoliaVersion>5.6.4</magnoliaVersion>
+    <restVersion>2.1</restVersion>
+    <javaVersion>1.8</javaVersion>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>info.magnolia.bundle</groupId>
+        <artifactId>magnolia-bundle-parent</artifactId>
+        <version>${magnoliaBundleVersion}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-core</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>info.magnolia.core</groupId>
+      <artifactId>magnolia-configuration</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>info.magnolia.definitions</groupId>
+      <artifactId>magnolia-definitions-app</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>info.magnolia.rest</groupId>
+      <artifactId>magnolia-rest-integration</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-templating</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>info.magnolia.ui</groupId>
+      <artifactId>magnolia-ui-dialog</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.cedarsoftware</groupId>
+      <artifactId>json-io</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${javaVersion}</source>
+          <target>${javaVersion}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <!-- default resources configuration which will filter the module descriptor -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>META-INF/magnolia/*</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+</project>

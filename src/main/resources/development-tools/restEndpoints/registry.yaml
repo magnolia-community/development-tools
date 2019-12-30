@@ -1,0 +1,2 @@
+implementationClass: info.magnolia.development.rest.services.v1.RegistryEndpoint
+class: info.magnolia.rest.registry.ConfiguredEndpointDefinition
